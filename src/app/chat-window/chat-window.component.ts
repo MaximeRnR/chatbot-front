@@ -25,6 +25,7 @@ export class ChatWindowComponent implements OnInit {
   currentThread: Thread;
   draftMessage: Message;
   currentUser: User;
+  opened: boolean;
 
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService,
@@ -33,6 +34,7 @@ export class ChatWindowComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.opened = false;
     this.messages = this.threadsService.currentThreadMessages;
 
     this.draftMessage = new Message();
@@ -78,4 +80,10 @@ export class ChatWindowComponent implements OnInit {
       .nativeElement.querySelector('.msg-container-base');
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }
+
+  openWindow(): void {
+    this.opened = !this.opened
+  }
+
+
 }

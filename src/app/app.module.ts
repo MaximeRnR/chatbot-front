@@ -19,6 +19,7 @@ import { ChatMenuBarComponent } from './chat-menu-bar/chat-menu-bar.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatButtonModule } from '@angular/material/button';
     HttpModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     MessagesService, ThreadsService, UsersService

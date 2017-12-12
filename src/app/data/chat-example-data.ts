@@ -9,7 +9,7 @@ import * as moment from 'moment';
 
 // the person using the app us Juliet
 const me: User = new User('Max', 'assets/images/avatars/male-avatar-1.png');
-const hajime: User = new User('HajimeBot', 'assets/images/avatars/male-avatar-2.png');
+const hajime: User = new User('HajimeBot', 'assets/images/avatars/robot.png');
 
 const tHajime: Thread = new Thread('tHajime', hajime.name, hajime.avatarSrc);
 

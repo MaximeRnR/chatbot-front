@@ -5997,8 +5997,8 @@ button.close {
 
 
 .chat-window {
-  bottom: 0;
-  right: 0;
+  bottom: 16%;
+  right: 2%;
   position: fixed;
   float: right;
   margin-left: 10px; }
