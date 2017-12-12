@@ -9,38 +9,47 @@ import { Observable } from 'rxjs';
 
 import { User } from '../user/user.model';
 import { UsersService } from '../user/users.service';
-import { Thread } from '../thread/thread.model';
-import { ThreadsService } from '../thread/threads.service';
 import { Message } from '../message/message.model';
 import { MessagesService } from '../message/messages.service';
+
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('windowState', [
+      state('true', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateY(100%)'}),
+        animate(200)
+      ]),
+      transition('* => void', [
+        animate(200, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class ChatWindowComponent implements OnInit {
   messages: Observable<any>;
-  currentThread: Thread;
   draftMessage: Message;
   currentUser: User;
+  opened: boolean;
 
   constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService,
               public UsersService: UsersService,
               public el: ElementRef) {
   }
 
   ngOnInit(): void {
-    this.messages = this.threadsService.currentThreadMessages;
+    this.opened = false;
+
+    this.messages = this.messagesService.messages
 
     this.draftMessage = new Message();
-
-    this.threadsService.currentThread.subscribe(
-      (thread: Thread) => {
-        this.currentThread = thread;
-      });
 
     this.UsersService.currentUser
       .subscribe(
@@ -57,15 +66,9 @@ export class ChatWindowComponent implements OnInit {
         });
   }
 
-  onEnter(event: any): void {
-    this.sendMessage();
-    event.preventDefault();
-  }
-
   sendMessage(): void {
     const m: Message = this.draftMessage;
     m.author = this.currentUser;
-    m.thread = this.currentThread;
     m.isRead = true;
     console.log(m)
     this.messagesService.addMessage(m);
@@ -76,6 +79,19 @@ export class ChatWindowComponent implements OnInit {
   scrollToBottom(): void {
     const scrollPane: any = this.el
       .nativeElement.querySelector('.msg-container-base');
-    scrollPane.scrollTop = scrollPane.scrollHeight;
+    if(this.opened)
+      scrollPane.scrollTop = scrollPane.scrollHeight;
   }
+
+  onEnter(event: any): void {
+    this.sendMessage();
+    event.preventDefault();
+  }
+
+  openWindow(): void {
+    this.opened = !this.opened
+  }
+
+
+
 }

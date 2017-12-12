@@ -1,5 +1,13 @@
+
+
+
 <div class="chat-window-container">
-  <div class="chat-window">
+
+  <button mat-fab class="chat-button-opener" (click)="openWindow()">
+    <span class="glyphicon glyphicon-comment"></span>
+  </button>
+
+  <div *ngIf="opened"  [@windowState]="opened" class="chat-window">
     <div class="panel-container">
       <div class="panel panel-default">
 
@@ -7,7 +15,7 @@
           <div class="panel-title-container">
             <h3 class="panel-title">
               <span class="glyphicon glyphicon-comment"></span>
-              Chat - {{currentThread.name}}
+              Chat - HajimeBot
             </h3>
           </div>
           <div class="panel-buttons-container">

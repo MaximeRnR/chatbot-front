@@ -1,0 +1,8 @@
+.chat-button-opener {
+  bottom: 4%;
+  right: 4%;
+  position: fixed;
+  float: right;
+  margin-left: 10px;
+  background-color: #2ecc71;
+}

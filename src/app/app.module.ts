@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UsersService } from './user/users.service';
-import { ThreadsService } from './thread/threads.service';
 import { MessagesService } from './message/messages.service';
 
 import { AppComponent } from './app.component';
@@ -14,9 +13,12 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { FromNowPipe } from './pipes/from-now.pipe';
 import { ChatHeaderBarComponent } from './chat-header-bar/chat-header-bar.component';
+import { ChatMenuBarComponent } from './chat-menu-bar/chat-menu-bar.component';
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,17 +27,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ChatWindowComponent,
     ChatPageComponent,
     FromNowPipe,
-    ChatHeaderBarComponent
+    ChatHeaderBarComponent,
+    ChatMenuBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService
+    MessagesService, UsersService
   ],
 
   bootstrap: [AppComponent]
