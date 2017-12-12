@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UsersService } from './user/users.service';
-import { ThreadsService } from './thread/threads.service';
 import { MessagesService } from './message/messages.service';
 
 import { AppComponent } from './app.component';
@@ -41,7 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule
   ],
   providers: [
-    MessagesService, ThreadsService, UsersService
+    MessagesService, UsersService
   ],
 
   bootstrap: [AppComponent]

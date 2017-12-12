@@ -1,5 +1,4 @@
 import { User } from '../user/user.model';
-import { Thread } from '../thread/thread.model';
 import { uuid } from './../util/uuid';
 
 /**
@@ -11,7 +10,6 @@ import { uuid } from './../util/uuid';
    isRead: boolean;
    author: User;
    text: string;
-   thread: Thread;
 
    constructor(obj?: any) {
      this.id              = obj && obj.id              || uuid();
@@ -19,6 +17,5 @@ import { uuid } from './../util/uuid';
      this.sentAt          = obj && obj.sentAt          || new Date();
      this.author          = obj && obj.author          || null;
      this.text            = obj && obj.text            || null;
-     this.thread          = obj && obj.thread          || null;
    }
  }

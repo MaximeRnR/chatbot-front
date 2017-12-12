@@ -9,8 +9,6 @@ import { Observable } from 'rxjs';
 
 import { User } from '../user/user.model';
 import { UsersService } from '../user/users.service';
-import { Thread } from '../thread/thread.model';
-import { ThreadsService } from '../thread/threads.service';
 import { Message } from '../message/message.model';
 import { MessagesService } from '../message/messages.service';
 
@@ -37,27 +35,21 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 })
 export class ChatWindowComponent implements OnInit {
   messages: Observable<any>;
-  currentThread: Thread;
   draftMessage: Message;
   currentUser: User;
   opened: boolean;
 
   constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService,
               public UsersService: UsersService,
               public el: ElementRef) {
   }
 
   ngOnInit(): void {
     this.opened = false;
-    this.messages = this.threadsService.currentThreadMessages;
+
+    this.messages = this.messagesService.messages
 
     this.draftMessage = new Message();
-
-    this.threadsService.currentThread.subscribe(
-      (thread: Thread) => {
-        this.currentThread = thread;
-      });
 
     this.UsersService.currentUser
       .subscribe(
@@ -77,7 +69,6 @@ export class ChatWindowComponent implements OnInit {
   sendMessage(): void {
     const m: Message = this.draftMessage;
     m.author = this.currentUser;
-    m.thread = this.currentThread;
     m.isRead = true;
     console.log(m)
     this.messagesService.addMessage(m);
