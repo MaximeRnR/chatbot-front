@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-comment"></span>
   </button>
 
-  <div *ngIf="opened" class="chat-window">
+  <div *ngIf="opened"  [@windowState]="opened" class="chat-window">
     <div class="panel-container">
       <div class="panel panel-default">
 

@@ -14,11 +14,26 @@ import { ThreadsService } from '../thread/threads.service';
 import { Message } from '../message/message.model';
 import { MessagesService } from '../message/messages.service';
 
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
+
 @Component({
   selector: 'chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('windowState', [
+      state('true', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateY(100%)'}),
+        animate(200)
+      ]),
+      transition('* => void', [
+        animate(200, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class ChatWindowComponent implements OnInit {
   messages: Observable<any>;
@@ -59,11 +74,6 @@ export class ChatWindowComponent implements OnInit {
         });
   }
 
-  onEnter(event: any): void {
-    this.sendMessage();
-    event.preventDefault();
-  }
-
   sendMessage(): void {
     const m: Message = this.draftMessage;
     m.author = this.currentUser;
@@ -81,9 +91,15 @@ export class ChatWindowComponent implements OnInit {
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }
 
+  onEnter(event: any): void {
+    this.sendMessage();
+    event.preventDefault();
+  }
+
   openWindow(): void {
     this.opened = !this.opened
   }
+
 
 
 }
