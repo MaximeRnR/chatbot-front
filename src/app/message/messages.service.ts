@@ -12,7 +12,7 @@ interface IMessagesOperation extends Function {
 @Injectable()
 export class MessagesService {
 
-  private hajimeUrl = 'http://localhost:8090/api/hajime';  // URL to web api
+  private hajimeUrl = 'http://localhost:8090/api/chatbot';  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
   // a stream that publishes new messages only once
   newMessages: Subject<Message> = new Subject<Message>();
@@ -75,7 +75,7 @@ export class MessagesService {
 
   getBotMessage(message: Message): void {
     this.http
-      .post(this.hajimeUrl+'/sendmessage', JSON.stringify(message),
+      .post(this.hajimeUrl+'/send', JSON.stringify(message),
         {headers: this.headers})
       .toPromise()
       .then(res => this.addMessage(res.json() as Message))
