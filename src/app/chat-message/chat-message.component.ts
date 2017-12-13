@@ -12,7 +12,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   styleUrls: ['./chat-message.component.css'],
   animations: [
     trigger('messageState', [
-      state('void', style({transform: 'translateY(-10%)',opacity: 0})),
+      state('void', style({transform: 'translateY(20%)',opacity: 0})),
       state('*', style({transform: 'translateY(0)', opacity: 1})),
       transition(':enter', animate(500))
     ])

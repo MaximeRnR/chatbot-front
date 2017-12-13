@@ -2,10 +2,11 @@
   border-radius: 20px;
   position: relative;
   padding: 15px 20px;
+  word-wrap: break-word;
 }
 
 .msg-sent {
-  background-color: #2ECC71;
+  background-color: #90C695;
   color: #fff;
   margin-left: 40%;
 }
@@ -36,12 +37,14 @@
 }
 
 .author {
+  padding-bottom: 1%;
   font-size: 100%;
   color: #95a5a6;
   font-style: italic;
 }
 
 .time {
+  padding-top: 1%;
   font-size: 100%;
   color: #95a5a6;
   font-style: italic;
