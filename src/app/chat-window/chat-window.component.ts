@@ -1,33 +1,26 @@
-import {
-  Component,
-  Inject,
-  ElementRef,
-  OnInit,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import { Observable } from 'rxjs';
+import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from "@angular/core";
+import {Observable} from "rxjs";
 
-import { User } from '../user/user.model';
-import { UsersService } from '../user/users.service';
-import { Message } from '../message/message.model';
-import { MessagesService } from '../message/messages.service';
+import {User} from "../user/user.model";
+import {UsersService} from "../user/users.service";
+import {Message} from "../message/message.model";
+import {MessagesService} from "../message/messages.service";
 
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {animate, sequence, state, style, transition, trigger} from "@angular/animations";
 
 
 @Component({
   selector: 'chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('windowState', [
       state('true', style({transform: 'translateX(0)'})),
-      transition('void => *', [
+      transition('void => true', [
         style({transform: 'translateY(100%)'}),
         animate(200)
       ]),
-      transition('* => void', [
+      transition('true => void', [
         animate(200, style({transform: 'translateX(100%)'}))
       ])
     ])
@@ -64,12 +57,13 @@ export class ChatWindowComponent implements OnInit {
             this.scrollToBottom();
           });
         });
+
   }
 
   sendMessage(): void {
     const m: Message = this.draftMessage;
     m.author = this.currentUser;
-    m.isRead = true;
+    m.isRead = false;
     console.log(m)
     this.messagesService.addMessage(m);
     this.messagesService.getBotMessage(m);
