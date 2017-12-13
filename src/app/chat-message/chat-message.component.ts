@@ -1,20 +1,22 @@
-import {
-  Component,
-  OnInit,
-  Input
-} from '@angular/core';
-import { Observable } from 'rxjs';
+import {Component, Input, OnInit} from "@angular/core";
 
-import { UsersService } from './../user/users.service';
-import { MessagesService } from './../message/messages.service';
+import {UsersService} from "./../user/users.service";
 
-import { Message } from './../message/message.model';
-import { User } from './../user/user.model';
+import {Message} from "./../message/message.model";
+import {User} from "./../user/user.model";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'chat-message',
   templateUrl: './chat-message.component.html',
-  styleUrls: ['./chat-message.component.css']
+  styleUrls: ['./chat-message.component.css'],
+  animations: [
+    trigger('messageState', [
+      state('void', style({transform: 'translateY(20%)',opacity: 0})),
+      state('*', style({transform: 'translateY(0)', opacity: 1})),
+      transition(':enter', animate(500))
+    ])
+  ]
 })
 export class ChatMessageComponent implements OnInit {
   @Input() message: Message;

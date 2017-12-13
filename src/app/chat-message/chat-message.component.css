@@ -1,0 +1,51 @@
+.text-message {
+  border-radius: 20px;
+  position: relative;
+  padding: 15px 20px;
+  word-wrap: break-word;
+}
+
+.msg-sent {
+  background-color: #90C695;
+  color: #fff;
+  margin-left: 40%;
+}
+
+.msg-receive {
+  background-color: #66CC99;
+  color: #fff;
+  margin-right: 40%;
+}
+
+
+.base-sent {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.base-receive {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.msg-container {
+  margin: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  padding-bottom: 1%;
+  font-size: 100%;
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.time {
+  padding-top: 1%;
+  font-size: 100%;
+  color: #95a5a6;
+  font-style: italic;
+}
