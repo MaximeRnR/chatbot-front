@@ -17,6 +17,9 @@
   margin-right: 40%;
 }
 
+.msg-error {
+  background-color: #EC644B;
+}
 
 .base-sent {
   display: flex;

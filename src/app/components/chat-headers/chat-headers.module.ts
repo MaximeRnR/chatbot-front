@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { ChatMenuBarComponent } from "./chat-menu-bar/chat-menu-bar.component";
 import { ChatHeaderBarComponent } from "./chat-header-bar/chat-header-bar.component";
 
@@ -22,4 +22,5 @@ import { ChatHeadersComponent } from "./chat-headers.component";
     ChatHeadersComponent
   ]
 })
-export class ChatHeadersModule { }
+export class ChatHeadersModule {
+}

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ChatHeaderBarComponent } from './chat-header-bar.component';
+import { ChatHeaderBarComponent } from "./chat-header-bar.component";
 
 describe('ChatHeaderBarComponent', () => {
   let component: ChatHeaderBarComponent;
@@ -8,9 +8,9 @@ describe('ChatHeaderBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatHeaderBarComponent ]
+      declarations: [ChatHeaderBarComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 import { ChatMessageComponent } from "./chat-message/chat-message.component";
 import { ChatWindowComponent } from "./chat-window/chat-window.component";
 import { FromNowPipe } from "../../shared/pipes/from-now.pipe";
-import { ChatBoxComponent } from './chat-box.component';
+import { ChatBoxComponent } from "./chat-box.component";
 
 import { MatButtonModule } from "@angular/material/button";
 
@@ -24,4 +24,5 @@ import { MatButtonModule } from "@angular/material/button";
     ChatBoxComponent
   ]
 })
-export class ChatBoxModule { }
+export class ChatBoxModule {
+}

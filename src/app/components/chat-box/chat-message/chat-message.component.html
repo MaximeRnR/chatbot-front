@@ -2,7 +2,7 @@
      [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
   <div class="message">
     <h1 class="author"> {{message.author.name}} </h1>
-    <div class="text-message" [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
+    <div class="text-message" [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming, 'msg-error': message.error}">
       <p>{{message.text}}</p>
     </div>
     <p class="time"> {{message.sentAt | fromNow}}</p>

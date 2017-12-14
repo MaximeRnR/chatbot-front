@@ -1,9 +1,5 @@
 <div class="chat-window-container">
 
-  <button mat-fab class="chat-button-opener" (click)="openWindow()">
-    <span class="glyphicon glyphicon-comment"></span>
-  </button>
-
   <div *ngIf="opened" [@windowState]="opened" class="chat-window">
     <div class="panel-container">
       <div class="panel panel-default">
@@ -44,4 +40,9 @@
       </div>
     </div>
   </div>
+
+  <button mat-fab class="chat-button-opener" (click)="openWindow()">
+    <span class="glyphicon glyphicon-comment"></span>
+  </button>
+
 </div>
