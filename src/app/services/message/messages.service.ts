@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { Message } from '../message/message.model';
+import { Message } from '../../core/model/message.model';
 import { Headers, Http } from '@angular/http';
 
 const initialMessages: Message[] = [];

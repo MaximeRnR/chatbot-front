@@ -1,10 +1,10 @@
 import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
 
-import {User} from "../user/user.model";
-import {UsersService} from "../user/users.service";
-import {Message} from "../message/message.model";
-import {MessagesService} from "../message/messages.service";
+import {User} from "../../../core/model/user.model";
+import {UsersService} from "../../../services/user/users.service";
+import {Message} from "../../../core/model/message.model";
+import {MessagesService} from "../../../services/message/messages.service";
 
 import {animate, sequence, state, style, transition, trigger} from "@angular/animations";
 
