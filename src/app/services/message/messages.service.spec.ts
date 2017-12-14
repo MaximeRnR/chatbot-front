@@ -1,7 +1,7 @@
 import { MessagesService } from './messages.service';
 
-import { Message } from './message.model';
-import { User } from './../user/user.model';
+import { Message } from '../../core/model/message.model';
+import { User } from '../../core/model/user.model';
 import { Headers, Http } from '@angular/http';
 
 describe('MessagesService', () => {
