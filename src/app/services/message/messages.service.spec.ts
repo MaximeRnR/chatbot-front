@@ -1,8 +1,8 @@
-import { MessagesService } from './messages.service';
+import { MessagesService } from "./messages.service";
 
-import { Message } from '../../core/model/message.model';
-import { User } from '../../core/model/user.model';
-import { Headers, Http } from '@angular/http';
+import { Message } from "../../core/model/message.model";
+import { User } from "../../core/model/user.model";
+import { Http } from "@angular/http";
 
 describe('MessagesService', () => {
   it('should test', () => {
@@ -22,13 +22,13 @@ describe('MessagesService', () => {
 
     // listen to each message indivdually as it comes in
     messagesService.newMessages
-      .subscribe( (message: Message) => {
+      .subscribe((message: Message) => {
         console.log('=> newMessages: ' + message.text);
       });
 
     // listen to the stream of most current messages
     messagesService.messages
-      .subscribe( (messages: Message[]) => {
+      .subscribe((messages: Message[]) => {
         console.log('=> messages: ' + messages.length);
       });
 

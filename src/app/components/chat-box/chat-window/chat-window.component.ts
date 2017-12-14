@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from "@angular/core";
-import {Observable} from "rxjs";
+import { Component, ElementRef, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
 
-import {User} from "../../../core/model/user.model";
-import {UsersService} from "../../../services/user/users.service";
-import {Message} from "../../../core/model/message.model";
-import {MessagesService} from "../../../services/message/messages.service";
+import { User } from "../../../core/model/user.model";
+import { UsersService } from "../../../services/user/users.service";
+import { Message } from "../../../core/model/message.model";
+import { MessagesService } from "../../../services/message/messages.service";
 
-import {animate, sequence, state, style, transition, trigger} from "@angular/animations";
+import { animate, state, style, transition, trigger } from "@angular/animations";
 
 
 @Component({
@@ -62,18 +62,19 @@ export class ChatWindowComponent implements OnInit {
 
   sendMessage(): void {
     const m: Message = this.draftMessage;
-    m.author = this.currentUser;
-    m.isRead = false;
-    console.log(m)
-    this.messagesService.addMessage(m);
-    this.messagesService.getBotMessage(m);
-    this.draftMessage = new Message();
+    if (m.text !== null && m.text.trim() !== "") {
+      m.author = this.currentUser;
+      m.isRead = false;
+      this.messagesService.addMessage(m);
+      this.messagesService.getBotMessage(m);
+      this.draftMessage = new Message();
+    }
   }
 
   scrollToBottom(): void {
     const scrollPane: any = this.el
       .nativeElement.querySelector('.msg-container-base');
-    if(this.opened)
+    if (this.opened)
       scrollPane.scrollTop = scrollPane.scrollHeight;
   }
 
@@ -85,7 +86,6 @@ export class ChatWindowComponent implements OnInit {
   openWindow(): void {
     this.opened = !this.opened
   }
-
 
 
 }

@@ -1,4 +1,4 @@
-import { uuid } from '../../util/uuid';
+import { uuid } from "../../util/uuid";
 
 /**
  * A User represents an agent that sends messages
@@ -6,8 +6,7 @@ import { uuid } from '../../util/uuid';
 export class User {
   id: string;
 
-  constructor(public name: string,
-              public avatarSrc: string) {
+  constructor(public name: string,) {
     this.id = uuid();
   }
 }

@@ -1,4 +1,4 @@
-import { FromNowPipe } from './from-now.pipe';
+import { FromNowPipe } from "./from-now.pipe";
 
 xdescribe('FromNowPipe', () => {
   it('create an instance', () => {
