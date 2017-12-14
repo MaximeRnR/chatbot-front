@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
-import { Message } from "../../core/model/message.model";
-import { Headers, Http } from "@angular/http";
+import {Injectable} from "@angular/core";
+import {Observable, Subject} from "rxjs";
+import {Message} from "../../core/model/message.model";
+import {Headers, Http} from "@angular/http";
 
 const initialMessages: Message[] = [];
 
@@ -30,12 +30,12 @@ export class MessagesService {
 
   constructor(private http: Http) {
     this.messages = this.updates
-    // watch the updates and accumulate operations on the messages
+      // watch the updates and accumulate operations on the messages
       .scan((messages: Message[],
              operation: IMessagesOperation) => {
-          return operation(messages);
-        },
-        initialMessages)
+               return operation(messages);
+             },
+            initialMessages)
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of
       // messages
@@ -57,7 +57,7 @@ export class MessagesService {
     // entirely. The pros are that it is potentially clearer. The cons are that
     // the stream is no longer composable.
     this.create
-      .map(function (message: Message): IMessagesOperation {
+      .map( function(message: Message): IMessagesOperation {
         return (messages: Message[]) => {
           return messages.concat(message);
         };
@@ -73,20 +73,13 @@ export class MessagesService {
     this.newMessages.next(message)
   }
 
-  getBotMessage(message: Message): void {
-    this.http
-      .post(this.hajimeUrl + '/send', JSON.stringify(message),
+  getBotMessage(message: Message): Promise<Message> {
+    return this.http
+      .post(this.hajimeUrl+'/send', JSON.stringify(message),
         {headers: this.headers})
       .toPromise()
-      .then(res => this.addMessage(res.json() as Message))
-      .catch(res => {
-        let errorMsg: Message = {
-          id: null, sentAt: new Date, error: true, isRead: false,
-          author: {id: null, name: "DebugBot"},
-          text: "Désole HajimeBot semble être parti en vacances, Recontact le plus tard !"
-        }
-        this.addMessage(errorMsg)
-      })
+      .then(res => res.json() as Message)
+
   }
 }
 

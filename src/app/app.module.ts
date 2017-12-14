@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
 
-
 import { MessagesService } from "./services/message/messages.service";
 import { UsersService } from "./services/user/users.service";
+
 import { ChatHeadersModule } from "./components/chat-headers/chat-headers.module";
 import { ChatBoxModule } from "./components/chat-box/chat-box.module";
 

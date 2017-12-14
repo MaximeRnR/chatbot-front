@@ -12,7 +12,7 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 @Component({
   selector: 'chat-window',
   templateUrl: './chat-window.component.html',
-  styleUrls: ['./chat-window.component.css'],
+  styleUrls: ['./chat-window.component.scss'],
   animations: [
     trigger('windowState', [
       state('true', style({transform: 'translateX(0)'})),
@@ -23,6 +23,16 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
       transition('true => void', [
         animate(200, style({transform: 'translateX(100%)'}))
       ])
+    ]),
+    trigger('gifState', [
+      state('true', style({opacity: 1})),
+      transition('void => true', [
+        style({ opacity: 0}),
+        animate(100)
+      ]),
+      transition('true => void', [
+        animate(100, style({ opacity: 1}))
+      ])
     ])
   ]
 })
@@ -31,6 +41,7 @@ export class ChatWindowComponent implements OnInit {
   draftMessage: Message;
   currentUser: User;
   opened: boolean;
+  waitingGif = false;
 
   constructor(public messagesService: MessagesService,
               public UsersService: UsersService,
@@ -66,7 +77,21 @@ export class ChatWindowComponent implements OnInit {
       m.author = this.currentUser;
       m.isRead = false;
       this.messagesService.addMessage(m);
-      this.messagesService.getBotMessage(m);
+      this.waitingGif = true;
+      this.messagesService.getBotMessage(m)
+        .then(res => {
+          this.messagesService.addMessage(res)
+          this.waitingGif = false
+        })
+        .catch(res => {
+          let errorMsg: Message = {
+            id: null, sentAt: new Date, error: true, isRead: false,
+            author: {id: null, name: "DebugBot"},
+            text: "Désole HajimeBot semble être parti en vacances, Recontact le plus tard !"
+          }
+          this.messagesService.addMessage(errorMsg)
+          this.waitingGif = false
+        })
       this.draftMessage = new Message();
     }
   }
