@@ -6,13 +6,13 @@
 }
 
 .msg-sent {
-  background-color: #90C695;
+  background-color: #3498db;
   color: #fff;
   margin-left: 40%;
 }
 
 .msg-receive {
-  background-color: #66CC99;
+  background-color: #f39c12;
   color: #fff;
   margin-right: 40%;
 }

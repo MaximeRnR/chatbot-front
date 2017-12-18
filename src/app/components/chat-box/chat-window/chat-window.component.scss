@@ -4,7 +4,7 @@
   position: fixed;
   float: right;
   margin-left: 10px;
-  background-color: #2ecc71;
+  background-color: #e67e22;
 }
 
 .chat-window {
@@ -91,12 +91,12 @@
   border-left: 0;
   border-top: 4px solid #e5e5e5;
   color: #ffffff;
-  background-color: #1abc9c;
+  background-color: #EB974E;
   outline: none;
 }
 
 .typing-indicator {
-  $ti-color-bg: #90C695;
+  $ti-color-bg: #e67e22;
   background-color: $ti-color-bg;
   will-change: transform;
   width: auto;
