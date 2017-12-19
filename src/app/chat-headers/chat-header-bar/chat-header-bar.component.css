@@ -3,8 +3,11 @@ mat-toolbar {
   font-family: komikax;
   color: #ecf0f1;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
   font-size: 200%;
 }
 
+.logo {
+  height: 80%;
+  padding-right: 10px;
+}

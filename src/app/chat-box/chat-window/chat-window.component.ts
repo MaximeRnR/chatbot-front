@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 
-import { User } from "../../../core/model/user.model";
-import { UsersService } from "../../../services/user/users.service";
-import { Message } from "../../../core/model/message.model";
-import { MessagesService } from "../../../services/message/messages.service";
+import { User } from "../shared/user/model/user.model";
+import { UsersService } from "../shared/user/service/users.service";
+import { Message } from "../shared/message/model/message.model";
+import { MessagesService } from "../shared/message/service/messages.service";
 
 import { animate, state, style, transition, trigger } from "@angular/animations";
 

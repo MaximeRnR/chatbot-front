@@ -1,20 +1,16 @@
 import { MessagesService } from "./messages.service";
 
-import { Message } from "../../core/model/message.model";
-import { User } from "../../core/model/user.model";
+import { Message } from "../model/message.model";
 import { Http } from "@angular/http";
 
 describe('MessagesService', () => {
   it('should test', () => {
     var http: Http
-    const user: User = new User('Nate', '');
     const m1: Message = new Message({
-      author: user,
       text: 'Hi!',
     });
 
     const m2: Message = new Message({
-      author: user,
       text: 'Bye!',
     });
 

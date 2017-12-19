@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 
-import { UsersService } from "../../../services/user/users.service";
+import { UsersService } from "../shared/user/service/users.service";
 
-import { Message } from "../../../core/model/message.model";
-import { User } from "../../../core/model/user.model";
+import { Message } from "../shared/message/model/message.model";
+import { User } from "../shared/user/model/user.model";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
