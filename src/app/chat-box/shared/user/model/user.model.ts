@@ -1,4 +1,4 @@
-import { uuid } from "../../util/uuid";
+import { uuid } from "../../../../shared/util/uuid";
 
 /**
  * A User represents an agent that sends messages

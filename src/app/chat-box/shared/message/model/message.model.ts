@@ -1,5 +1,5 @@
-import { User } from "./user.model";
-import { uuid } from "../../util/uuid";
+import { User } from "../../user/model/user.model";
+import { uuid } from "../../../../shared/util/uuid";
 
 /**
  * Message represents one message being sent in a Thread

@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 
-import { UsersService } from "./services/user/users.service";
-import { MessagesService } from "./services/message/messages.service";
-import { User } from "./core/model/user.model";
+import { UsersService } from "./chat-box/shared/user/service/users.service";
+import { MessagesService } from "./chat-box/shared/message/service/messages.service";
+import { User } from "./chat-box/shared/user/model/user.model";
 
 const me: User = new User('Max');
 

@@ -7,11 +7,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from "./app.component";
 
-import { MessagesService } from "./services/message/messages.service";
-import { UsersService } from "./services/user/users.service";
+import { MessagesService } from "./chat-box/shared/message/service/messages.service";
+import { UsersService } from "./chat-box/shared/user/service/users.service";
 
-import { ChatHeadersModule } from "./components/chat-headers/chat-headers.module";
-import { ChatBoxModule } from "./components/chat-box/chat-box.module";
+import { ChatHeadersModule } from "./chat-headers/chat-headers.module";
+import { ChatBoxModule } from "./chat-box/chat-box.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,10 +25,10 @@ import { ChatBoxModule } from "./components/chat-box/chat-box.module";
     HttpClientModule,
     BrowserAnimationsModule,
     ChatHeadersModule,
-    ChatBoxModule
+    ChatBoxModule,
+    SharedModule
   ],
   bootstrap: [AppComponent],
-  providers: [MessagesService, UsersService]
 })
 export class AppModule {
 }
