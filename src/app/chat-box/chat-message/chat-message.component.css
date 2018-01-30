@@ -1,7 +1,7 @@
 .text-message {
   border-radius: 20px;
   position: relative;
-  padding: 15px 20px;
+  padding: 8px 16px 8px 16px;
   word-wrap: break-word;
 }
 
