@@ -17,11 +17,11 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
     trigger('windowState', [
       state('true', style({transform: 'translateX(0)'})),
       transition('void => true', [
-        style({transform: 'translateY(100%)'}),
-        animate(200)
+        style({transform: 'translateY(150%)'}),
+        animate('0.66s cubic-bezier(0,0,0.31,1)')
       ]),
       transition('true => void', [
-        animate(200, style({transform: 'translateX(100%)'}))
+        animate('0.66s cubic-bezier(0,0,0.31,1)', style({transform: 'translateX(120%) '}), )
       ])
     ]),
     trigger('gifState', [
