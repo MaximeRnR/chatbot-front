@@ -18,12 +18,15 @@
   will-change: transform;
 }
 
-.chat-window > div > .panel {
-  border-radius: 5px 5px 0 0;
-}
+
 
 .chat-window, .chat-window .top-bar .panel-buttons-container, .chat-window .top-bar .panel-title-container, .chat-window .messages {
   padding: 0;
+}
+
+.panel-container {
+  border: solid 2px #666666;
+  border-radius: 15px 15px 10px 10px;
 }
 
 .chat-window .panel {
