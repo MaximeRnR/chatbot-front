@@ -8,6 +8,7 @@
 .message {
   display: flex;
   flex-direction: column;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 
 .msg-sent {
@@ -50,6 +51,7 @@
   font-size: 100%;
   color: #95a5a6;
   font-style: italic;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 
 .time {
@@ -57,4 +59,5 @@
   font-size: 100%;
   color: #95a5a6;
   font-style: italic;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
 }
