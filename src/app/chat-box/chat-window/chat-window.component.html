@@ -17,6 +17,14 @@
         </div>
 
         <div class="panel-body msg-container-base">
+
+          <div class="window-info">
+            <div class="window-info-img">
+              <img src="../../../assets/images/logos/hajimelogo.png"/>
+            </div>
+            <div class="window-info-text">Bienvenue ! Discute avec Hajime grâce à cette fenêtre !</div>
+          </div>
+
           <chat-message
             *ngFor="let message of messages | async"
             [message]="message">
