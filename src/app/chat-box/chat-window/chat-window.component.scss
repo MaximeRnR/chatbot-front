@@ -15,14 +15,18 @@
   margin-left: 10px;
   max-width: 75%;
   width: 512px;
+  will-change: transform;
 }
 
-.chat-window > div > .panel {
-  border-radius: 5px 5px 0 0;
-}
+
 
 .chat-window, .chat-window .top-bar .panel-buttons-container, .chat-window .top-bar .panel-title-container, .chat-window .messages {
   padding: 0;
+}
+
+.panel-container {
+  border: solid 2px #666666;
+  border-radius: 15px 15px 10px 10px;
 }
 
 .chat-window .panel {
@@ -62,6 +66,7 @@
 }
 
 .chat-input {
+  padding-left: 10px;
   height: 32px;
   align-self: flex-start;
   border-bottom: 4px solid #e5e5e5;
@@ -151,6 +156,38 @@
   50% {
     transform: scale(1.05);
   }
+}
+
+.window-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.window-info-text {
+  background-color: #2980b9;
+  color: #e5e5e5;
+  border-radius: 5px;
+  padding: 8px 4px 8px 4px;
+}
+
+.window-info-img {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.window-info-img img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 

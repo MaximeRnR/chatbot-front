@@ -1,20 +1,25 @@
 .text-message {
   border-radius: 20px;
   position: relative;
-  padding: 15px 20px;
+  padding: 8px 16px 8px 16px;
   word-wrap: break-word;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
 }
 
 .msg-sent {
   background-color: #3498db;
   color: #fff;
-  margin-left: 40%;
+  align-self: flex-end;
 }
 
 .msg-receive {
   background-color: #f39c12;
   color: #fff;
-  margin-right: 40%;
+  align-self: flex-start;
 }
 
 .msg-error {
@@ -37,6 +42,7 @@
   margin: 2%;
   display: flex;
   flex-direction: column;
+  will-change: translate;
 }
 
 .author {
