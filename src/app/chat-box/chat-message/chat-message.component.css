@@ -25,6 +25,8 @@
 
 .msg-error {
   background-color: #EC644B;
+  align-self: flex-start;
+  max-width: 60%;
 }
 
 .base-sent {
